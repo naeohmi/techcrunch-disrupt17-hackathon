@@ -1,25 +1,12 @@
-<!DOCTYPE html>
-<html>
-
-  <head>
+<% include ./partials/boilerplate %>
+<% include ./partials/end-boilerplate %>
     <script src=https://cdn.pubnub.com/sdk/javascript/pubnub.4.0.11.min.js></script>
-    <title>
-      <%= title %>
-    </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-
-  <body>
+<% include ./partials/header %>
     <h1><%= title %></h1>
-    <p>Welcome to
-      <%= title %>
-    </p>
+    <p>Welcome to <%= title %></p> 
     Enter Chat and press enter
     <div>
       <input id=input placeholder=you-chat-here />
     </div>
     <div id=box></div>
-    <script src='/script/main.js'></script>
-  </body>
-
-</html>
+<% include ./partials/end %>
