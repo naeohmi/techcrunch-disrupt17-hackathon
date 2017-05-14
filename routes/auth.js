@@ -5,13 +5,13 @@ const router = express.Router();
 
 router.get('/login', (req, res) => {
   res.render('auth/log-in', {
-    documentTitle: 'Adaquotes login',
+    documentTitle: 'Helperbee login',
   });
 });
 
 router.get('/register', (req, res) => {
   res.render('auth/register', {
-    documentTitle: 'Adaquotes registration',
+    documentTitle: 'Helperbee registration',
   });
 });
 

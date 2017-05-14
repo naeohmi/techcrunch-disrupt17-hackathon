@@ -16,4 +16,8 @@ postRoutes.post('/', authHelpers.loginRequired, controller.create);
 postRoutes.put('/:id', authHelpers.loginRequired, controller.update);
 postRoutes.delete('/:id', authHelpers.loginRequired, controller.destroy);
 
+
+// include user profile page here 
+// with a link to the chat page
+
 module.exports = postRoutes;
