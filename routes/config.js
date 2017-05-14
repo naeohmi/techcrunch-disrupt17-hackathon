@@ -9,13 +9,11 @@ const db = pgp(process.env.DATABASE_URL || connectionString);
 const xhr = require('xhr');
 const pubnub = require('pubnub');
 
-
 const express = require('express');
 const controller = require('../controllers/usersController');
 const router = express.Router();
 const authHelpers = require('../services/auth/authHelpers');
 const passport = require('../services/auth/local');
-
 
 module.exports = {
     axios: axios,
