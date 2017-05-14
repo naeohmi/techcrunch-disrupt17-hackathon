@@ -4,11 +4,19 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+const methodOverride = require('method-override');
+const session = require('express-session');
+const passport = require('passport');
 var index = require('./routes/index');
-var users = require('./routes/users');
+
+const postRoutes = require('./routes/posts');
+const authRoutes = require('./routes/auth');
+const userRoutes = require('./routes/users')
 
 var app = express();
+
+require('dotenv').config();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -22,8 +30,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(methodOverride('_method'));
+app.use(session({
+  secret: process.env.SECRET_KEY,
+  resave: false,
+  saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use('/', index);
-app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -42,5 +58,12 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.use('/posts', postRoutes);
+
+app.use('/auth', authRoutes);
+app.use('/user', userRoutes);
+
+
 
 module.exports = app;
