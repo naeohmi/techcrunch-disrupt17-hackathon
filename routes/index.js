@@ -16,11 +16,6 @@ postRoutes.post('/', authHelpers.loginRequired, controller.create);
 postRoutes.put('/:id', authHelpers.loginRequired, controller.update);
 postRoutes.delete('/:id', authHelpers.loginRequired, controller.destroy);
 
-
-
-
-/////////////////
-//////.    Anthony did this
 //////.    include cookie-parser to store userid in
 
 postRoutes.get('/chat', (req, res) => {
@@ -29,3 +24,6 @@ postRoutes.get('/chat', (req, res) => {
 });
 
 module.exports = postRoutes;
+=======
+// include user profile page here 
+// with a link to the chat page

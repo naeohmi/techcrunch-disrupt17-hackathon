@@ -6,7 +6,7 @@ controller.index = (req, res) => {
   Post.findAll()
     .then(posts => {
       res.render('posts/posts-index', {
-        documentTitle: 'Adapost!',
+        documentTitle: 'helperbee',
         postsData: posts,
       });
     })
@@ -19,7 +19,7 @@ controller.show = (req, res) => {
   Post.findById(req.params.id)
     .then(post => {
       res.render('posts/posts-single', {
-        documentTitle: 'Adapost!',
+        documentTitle: 'helperbee',
         post: post,
       });
     })
@@ -46,7 +46,7 @@ controller.edit = (req, res) => {
   Post.findById(req.params.id)
     .then(post => {
       res.render('posts/posts-edit', {
-        documentTitle: 'Adapost!',
+        documentTitle: 'helperbee',
         post: post,
         id: req.params.id,
       });
