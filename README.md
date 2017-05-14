@@ -13,19 +13,19 @@ Helperbee is designed to connect people who want to help their neighbors adjust 
 https://twitter.com/Nexmo/status/863587297354272768
 
 ### Wire-Frames
-![wire-frame](public/img/wireframe.png)
+![wire-frame](public/img/wireframe.jpg)
 
 
 ### Hackathon Process
 
-![group-pic](public/img/group.png)
+![group-pic](public/img/group.jpg)
 
 The Team! We got jumpers at about midnight and took a quick break to snap this shot on the TechCrunch stage, then back to programming!
 
-![group-coding-at-table](public/img/table.png)
+![group-coding-at-table](public/img/table.jpg)
 
 This table was our home for 24 hours, some team-mates also napped under this table :)
 
-![presentations](public/img/presentations.png)
+![presentations](public/img/presentations.jpg)
 
 Sitting in the audience watching the presentations, so many amazing projects. We are all happy to be in the room with such a smart/talented group of hackers! :D
