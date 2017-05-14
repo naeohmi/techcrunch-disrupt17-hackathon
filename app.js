@@ -70,6 +70,21 @@ app.get('/', function(req, res) {
   });
 });
 
+
+//////// anthony
+
+app.get('/chat', (req, res) => {
+  console.log("in the chat")
+  res.render("chat/index", { user: 'user profile page placeholder'});
+});
+
+///////////
+
+
+
+
+
+
 app.use('/posts', postRoutes);
 app.use('/auth', authRoutes);
 app.use('/user', userRoutes);
