@@ -5,6 +5,11 @@ const pgp = require('pg-promise')(options)
 const connectionString = 'postgres://localhost:5432/helperbee';
 const db = pgp(connectionString);
 
+const connectionString = 'postgres://naeohmi@localhost:5432/helperbee';
+const db = pgp(process.env.DATABASE_URL || connectionString);
+
+
+
 //from pubhub documentation
 const xhr = require('xhr');
 const pubnub = require('pubnub');

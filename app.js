@@ -25,7 +25,7 @@ const userRoutes = require('./routes/users')
 /* setting up port & listen */
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, function() {
-  console.log(`listening on port ${PORT}`);
+    console.log(`listening on port ${PORT}`);
 });
 
 /* setting up views */
@@ -42,32 +42,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 app.use(session({
-  secret: process.env.SECRET_KEY,
-  resave: false,
-  saveUninitialized: true
+    secret: process.env.SECRET_KEY,
+    resave: false,
+    saveUninitialized: true
 }));
 app.use(passport.initialize());
 app.use(passport.session());
 
 /* setting routes */
 app.get('/', function(req, res) {
-  res.render('index', {
-    message: 'Hello World!',
-    documentTitle: 'Ada posts!!',
-    subTitle: 'Read some of the coolest posts around.',
-    showMore: true,
-    postAuthors: [
-      'Unknown',
-      'Yoda',
-      'CS Lewis',
-      'Frank Chimero',
-      'Pablo Picasso',
-      'Italo Calvino',
-      'T. S. Eliot',
-      'Samuel Beckett',
-      'Hunter S. Thompson',
-    ],
-  });
+    res.render('index');
 });
 
 
@@ -91,16 +75,16 @@ app.use('/user', userRoutes);
 
 // error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error');
 });
 
 /* handling 404 */
 app.get('*', function(req, res) {
-  res.status(404).send({ message: 'Oops! Not found.' });
+    res.status(404).send({ message: 'Oops! Not found.' });
 });

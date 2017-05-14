@@ -1,15 +1,15 @@
-// const pgp = require('pg-promise')();
+const pgp = require('pg-promise')();
 
-// let db;
+let db;
 
-// if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
-//   db = pgp({
-//     database: 'helperbee_development',
-//     port: 5432,
-//     host: 'localhost'
-//   });
-// } else if (process.env.NODE_ENV === 'production') {
-//   db = pgp(process.env.DATABASE_URL);
-// }
+if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
+  db = pgp({
+    database: 'helperbee_development',
+    port: 5432,
+    host: 'localhost'
+  });
+} else if (process.env.NODE_ENV === 'production') {
+  db = pgp(process.env.DATABASE_URL);
+}
 
-// module.exports = db;
+module.exports = db;
