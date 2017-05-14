@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs');
-const User = require('../models/user');
+const user = require('../models/user');
 
 const controller = {};
 
@@ -7,7 +7,7 @@ controller.create = (req, res, next) => {
   const salt = bcrypt.genSaltSync();
   const hash = bcrypt.hashSync(req.body.password, salt);
 
-  User.create({
+  user.create({
     username: req.body.username,
     first_name: req.body.first_name,
     last_name: req.body.last_name,
