@@ -11,9 +11,9 @@ const passport = require('passport');
 /* this will get our environment variables in our .env file */
 require('dotenv').config();
 
-const postRoutes = require('./controllers/postsController');
-const authRoutes = require('./routes/auth');
-const userRoutes = require('./con/users')
+// const postRoutes = require('./controllers/postsController');
+// const authRoutes = require('./routes/auth');
+// const userRoutes = require('./con/users')
 
 const app = express();
 
