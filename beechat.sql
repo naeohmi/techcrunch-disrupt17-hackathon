@@ -2,6 +2,7 @@ DROP DATABASE IF EXISTS beedatabase;
 CREATE DATABASE beedatabase;
 
 \c beedatabase;
+-- select FIRSTNAME, LASTNAME, USERNAME, LANGUAGE from profile inner join languagelist on (profile.language_id = languagelist.id);
 
 CREATE TABLE languagelist (
     ID SERIAL PRIMARY KEY,
@@ -15,6 +16,12 @@ CREATE TABLE profile (
     USERNAME VARCHAR(255),
     LANGUAGE_ID INTEGER REFERENCES languagelist(ID),
     PASSWORD INTEGER
+);
+
+CREATE TABLE messages (
+    ID SERIAL PRIMARY KEY,
+    NAME VARCHAR(255) NOT NULL,
+    CONTENT VARCHAR(255) NOT NULL
 );
 
 INSERT INTO languagelist (ID, LANGUAGE)
@@ -34,3 +41,7 @@ INSERT INTO languagelist (ID, LANGUAGE)
 INSERT INTO profile (ID, FIRSTNAME, LASTNAME, USERNAME, LANGUAGE_ID, PASSWORD)
     VALUES
         (1, 'John', 'Bayer', 'Batman', 1, 123456789);
+
+INSERT INTO messages (ID, NAME, CONTENT)
+    VALUES
+        (1, 'John', 'I am the dark knight!');
