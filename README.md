@@ -10,11 +10,9 @@ There are many ordinary Americans who support immigrants in their communities, b
 
 Helperbee is designed to connect people who want to help their neighbors adjust to the community. Helperbee provides an opportunity for people who share languages and cultures to connect in meaningful ways. Helperbee allows people who seek to learn more about different cultures to learn, while experiencing some of the challenges of immigration alongside their neighbors.
 
+Look, we're on the Nexmo twitter, the best dressed team at the hackathon! 
+
 https://twitter.com/Nexmo/status/863587297354272768
-
-### Wire-Frames
-![wire-frame](public/img/wireframe.jpg)
-
 
 ### Hackathon Process
 
