@@ -11,6 +11,10 @@ const passport = require('passport');
 /* this will get our environment variables in our .env file */
 require('dotenv').config();
 
+const postRoutes = require('./controllers/postsController');
+const authRoutes = require('./routes/auth');
+const userRoutes = require('./con/users')
+
 const app = express();
 
 /* importing routes */
@@ -65,9 +69,21 @@ app.get('/', function(req, res) {
     ],
   });
 });
+
 app.use('/posts', postRoutes);
 app.use('/auth', authRoutes);
 app.use('/user', userRoutes);
+
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
 
 /* handling 404 */
 app.get('*', function(req, res) {
