@@ -67,10 +67,26 @@
                 SIGNUP
 -----------------------------------------*/
 
-
+/* ---------------------------------------
+                  CHATINDEX
+-----------------------------------------*/
 .chatIndex {
   margin-top: 50px;
+  background-color: #EEEEEE;
 }
 
+.chatIndex .UserChat {
 
+}
 
+.chatIndex .mid-space {
+
+}
+
+.chatIndex .btn {
+  background-color: #FF5722;
+}
+
+.chatIndex .modal{
+
+}

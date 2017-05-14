@@ -1,8 +1,8 @@
 {
-  "name": "adaquote",
+  "name": "helperbee",
   "version": "1.0.0",
-  "description": "a web app for quotes",
-  "main": "server.js",
+  "description": "beeee helpful!",
+  "main": "index.js",
   "scripts": {
     "test": "jest",
     "start": "node app.js",
@@ -10,22 +10,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://git.generalassemb.ly/nyc-wdi-ada/adaquote.git"
+    "url": "https://github.com/naeohmi/techcrunch-disrupt17-hackathon"
   },
   "keywords": [
-    "quotes",
     "express",
     "node",
     "ejs",
-    "sass",
     "pr-promise",
     "postgres"
   ],
-  "author": "nyc-wdi-ada",
+  "author": "Naomi, Yamil, John, Anthony, Usman",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.16.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.1",
+    "codec": "0.0.3",
     "cookie-parser": "^1.4.3",
     "dotenv": "^4.0.0",
     "ejs": "~2.5.6",
@@ -39,6 +39,9 @@
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "pg-promise": "^5.6.8",
-    "serve-favicon": "~2.4.2"
+    "pubnub": "^4.8.0",
+    "query-string": "^4.3.4",
+    "serve-favicon": "~2.4.2",
+    "xhr": "^2.4.0"
   }
 }
