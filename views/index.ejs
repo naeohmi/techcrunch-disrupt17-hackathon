@@ -1,10 +1,3 @@
-
-<% include ./partials/boilerplate.ejs %>
-working
-<div class='hero'>
-  <h1><%= message %></h1>
-  <h3><%= subTitle %></h3>
-
 <!-- <% include ./partials/boilerplate %>
  <% include ./partials/styles %>
  <div class="index">
@@ -12,27 +5,7 @@ working
  <h1>Beeee a helper.</h1>
     <button class="btn btn-lg">LOOKING FOR HELP</button>
     <button class="btn btn-lg">LOOKING TO HELP</button>
-  </div> -->
-
+  </div>
 </div>
-
-<% if (showMore === true) { %>
-<div class='more'>
-<p>Ada posts is a compilation of favorite posts from the students of NYC-WDI-Ada. It's super cool and great.</p>
-</div>
-<% } %>
-
-<p>We have posts by <% postAuthors.forEach(function(author, index) { %>
-  <% if (index !== postAuthors.length - 1) { %>
-    <%= author %>,
-  <% } else { %>
-    <%- author -%>
-  <% } %>
-<% }) -%>.</p>
-
-<a href='/posts'>See all posts</a>
-<a href='/auth/register'>Register</a>
-<a href='/auth/login'>Log in</a>
-<a href='/auth/logout'>Log out</a>
-
+<% include ./partials/footer.ejs %>
 <% include ./partials/end.ejs %>

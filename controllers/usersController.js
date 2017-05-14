@@ -8,6 +8,7 @@ controller.create = (req, res, next) => {
   const hash = bcrypt.hashSync(req.body.password, salt);
 
   User.create({
+
     username: req.body.username,
     first_name: req.body.first_name,
     last_name: req.body.last_name,
@@ -26,3 +27,7 @@ controller.create = (req, res, next) => {
 };
 
 module.exports = controller;
+
+
+
+///////.  include cookie-parser to store user info
