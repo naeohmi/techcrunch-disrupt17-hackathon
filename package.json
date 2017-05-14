@@ -1,20 +1,43 @@
 {
-  "name": "helperbee",
-  "version": "0.0.0",
-  "private": true,
+  "name": "adaquote",
+  "version": "1.0.0",
+  "description": "a web app for quotes",
+  "main": "server.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "test": "jest",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://git.generalassemb.ly/nyc-wdi-ada/adaquote.git"
+  },
+  "keywords": [
+    "quotes",
+    "express",
+    "node",
+    "ejs",
+    "sass",
+    "pr-promise",
+    "postgres"
+  ],
+  "author": "nyc-wdi-ada",
+  "license": "ISC",
   "dependencies": {
-    "bluebird": "^3.5.0",
-    "body-parser": "~1.17.1",
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.3",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.17.1",
+    "cookie-parser": "^1.4.3",
     "dotenv": "^4.0.0",
     "ejs": "~2.5.6",
-    "express": "~4.15.2",
+    "express": "^4.15.2",
+    "express-session": "^1.15.2",
+    "method-override": "^2.3.8",
     "morgan": "~1.8.1",
+    "node-sass": "^4.5.2",
     "nodemon": "^1.11.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
     "pg-promise": "^5.6.8",
     "serve-favicon": "~2.4.2"
   }

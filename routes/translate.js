@@ -25,7 +25,7 @@ export default (request) => {
 
         // no need to translate in lang is same as input
         if (lang === request.message.input_lang) {
-            pubnub.publish({
+            config.pubnub.publish({
                 channel: langChannel,
                 message: request.message
             });
@@ -47,13 +47,13 @@ export default (request) => {
         const httpOptions = {
             headers: {
                 Authorization: 'Basic ' + 
-                    base64.btoa(username + ':' + password)
+                    config.base64.btoa(username + ':' + password)
             }
         };
 
         // We'll invoke xhr fetch to get the HTTP response
-        xhr.fetch(apiUrl + '?' +
-            query.stringify(queryParams), httpOptions)
+        config.xhr.fetch(apiUrl + '?' +
+            config.query.stringify(queryParams), httpOptions)
         .then(r => {
 
             console.log(r);
@@ -62,7 +62,7 @@ export default (request) => {
             // translated text
             const text = message.text;
             message.text = r.body;
-            pubnub.publish({
+            config.pubnub.publish({
                 channel: langChannel,
                 message
             });
