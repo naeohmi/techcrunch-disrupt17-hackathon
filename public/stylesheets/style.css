@@ -8,6 +8,14 @@
   color: #fff;
 }
 
+.navbar .navbar-brand {
+  font-family: montserrat;
+}
+
+.navbar li a:hover {
+  background-color: #FF5722;
+}
+
 
 .footer {
   background-color: #212121;
@@ -51,6 +59,6 @@
   color: #fff;
 }
 
-.index .jumbotron a: hover {
+.index .jumbotron a:hover {
   color: #FF5722;
 }
