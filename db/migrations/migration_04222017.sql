@@ -1,7 +1,10 @@
+\connect helperbee_development
 
-CREATE TABLE IF NOT EXISTS quotes (
+
+
+CREATE TABLE IF NOT EXISTS posts (
   id BIGSERIAL PRIMARY KEY,
-  title VARCHAR(1024),
-  content VARCHAR(1024),
+  title VARCHAR(255),
+  content VARCHAR(255),
   author VARCHAR(255),
 );

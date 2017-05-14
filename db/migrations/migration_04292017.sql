@@ -1,4 +1,4 @@
-\connect pizza_development
+\connect helperbee_development
 
 
 CREATE TABLE IF NOT EXISTS users (

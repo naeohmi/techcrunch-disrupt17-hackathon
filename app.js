@@ -1,35 +1,41 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+/* setting up express */
+const express = require('express');
+const path = require('path');
+const logger = require('morgan');
+const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
+const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
-// var index = require('./routes/index');
 
-const postRoutes = require('./routes/posts');
+/* this will get our environment variables in our .env file */
+require('dotenv').config();
+
+const app = express();
+
+/* importing routes */
+const postRoutes = require('./routes/index');
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/users')
 
-var app = express();
+/* setting up port & listen */
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, function() {
+  console.log(`listening on port ${PORT}`);
+});
 
-require('dotenv').config();
-
-
-// view engine setup
+/* setting up views */
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+/* setting static file */
+app.use('/static', express.static(path.join(__dirname, 'public')));
+/* setting up logger */
 app.use(logger('dev'));
+app.use(cookieParser());
+/* setting up body parser */
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
 app.use(methodOverride('_method'));
 app.use(session({
   secret: process.env.SECRET_KEY,
@@ -39,30 +45,31 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/', postRoutes);
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+/* setting routes */
+app.get('/', function(req, res) {
+  res.render('index', {
+    message: 'Hello World!',
+    documentTitle: 'Ada posts!!',
+    subTitle: 'Read some of the coolest posts around.',
+    showMore: true,
+    postAuthors: [
+      'Unknown',
+      'Yoda',
+      'CS Lewis',
+      'Frank Chimero',
+      'Pablo Picasso',
+      'Italo Calvino',
+      'T. S. Eliot',
+      'Samuel Beckett',
+      'Hunter S. Thompson',
+    ],
+  });
 });
-
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
-
-
+app.use('/posts', postRoutes);
 app.use('/auth', authRoutes);
 app.use('/user', userRoutes);
 
-
-
-module.exports = app;
+/* handling 404 */
+app.get('*', function(req, res) {
+  res.status(404).send({ message: 'Oops! Not found.' });
+});

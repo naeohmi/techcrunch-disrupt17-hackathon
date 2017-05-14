@@ -5,10 +5,10 @@
 <div class='posts'>
   <% postsData.forEach(function(post) { %>
     <div class='my-post'>
+        <span class='genre'><%= post.title %></span>
       <h3><%= post.content %></h3>
       <div class='meta'>
         <span class='author'><%= post.author %></span>
-        <span class='genre'><%= post.genre_id %></span>
       </div>
       <a href='/posts/<%= post.id %>'>Go to page</a>
       <a href='/posts/edit/<%= post.id %>'>Edit post</a>
