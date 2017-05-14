@@ -24,6 +24,5 @@ postRoutes.get('/chat', (req, res) => {
 });
 
 module.exports = postRoutes;
-=======
 // include user profile page here 
 // with a link to the chat page
