@@ -24,7 +24,7 @@
 let grab = () => {
     $("#mod")[0].addEventListener("click", function(e) {
         // startChat(userEmail)
-        console.log($(".modal-footer > input").val())
+        console.log($(".modal-footer > input").val());
     });
 };
 
