@@ -55,11 +55,11 @@ app.get('/', function(req, res) {
 });
 
 
-//////// anthony
+//////// anthony 
 
 app.get('/chat', (req, res) => {
-  console.log("in the chat")
-  res.render("chat/index", { user: 'user profile page placeholder'});
+    console.log("in the chat")
+    res.render("chat/index", { user: 'user profile page placeholder' });
 });
 
 ///////////
