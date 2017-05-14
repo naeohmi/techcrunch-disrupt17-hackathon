@@ -22,6 +22,7 @@
   "author": "Naomi, Yamil, John, Anthony, Usman",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.16.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.1",
     "codec": "0.0.3",
