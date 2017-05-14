@@ -9,9 +9,9 @@ const session = require('express-session');
 const passport = require('passport');
 var index = require('./routes/index');
 
-const postRoutes = require('./routes/posts');
-const authRoutes = require('./routes/auth');
-const userRoutes = require('./routes/users')
+// const postRoutes = require('./controllers/postsController');
+// const authRoutes = require('./routes/auth');
+// const userRoutes = require('./con/users')
 
 var app = express();
 
@@ -59,10 +59,9 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.use('/posts', postRoutes);
-
-app.use('/auth', authRoutes);
-app.use('/user', userRoutes);
+// app.use('/posts', postRoutes);
+// app.use('/auth', authRoutes);
+// app.use('/user', userRoutes);
 
 
 
