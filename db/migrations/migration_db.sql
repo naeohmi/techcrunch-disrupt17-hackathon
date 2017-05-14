@@ -5,7 +5,6 @@ create database helperbee_development;
 
 \connect helperbee_development
 
-
 CREATE TABLE IF NOT EXISTS users (
   id BIGSERIAL PRIMARY KEY,
   username VARCHAR(255) UNIQUE NOT NULL,
