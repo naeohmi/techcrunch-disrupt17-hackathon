@@ -8,6 +8,10 @@
   color: #fff;
 }
 
+.navbar .navbar-brand {
+  font-family: montserrat;
+}
+
 .navbar li a:hover {
   background-color: #FF5722;
 }
