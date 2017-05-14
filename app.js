@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const passport = require('passport');
-var index = require('./routes/index');
+// var index = require('./routes/index');
 
 const postRoutes = require('./routes/posts');
 const authRoutes = require('./routes/auth');
@@ -39,7 +39,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/', index);
+app.use('/', postRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -59,7 +59,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.use('/posts', postRoutes);
 
 app.use('/auth', authRoutes);
 app.use('/user', userRoutes);

@@ -1,0 +1,22 @@
+<% include ../partials/boilerplate %>
+
+<a href='/posts/add'>Add a post!</a>
+
+<div class='posts'>
+  <% postsData.forEach(function(post) { %>
+    <div class='my-post'>
+      <h3><%= post.content %></h3>
+      <div class='meta'>
+        <span class='author'><%= post.author %></span>
+        <span class='genre'><%= post.genre_id %></span>
+      </div>
+      <a href='/posts/<%= post.id %>'>Go to page</a>
+      <a href='/posts/edit/<%= post.id %>'>Edit post</a>
+      <form method='POST' action='/posts/<%= post.id %>?_method=DELETE'>
+        <input type='submit' value='Delete it!' />
+      </form>
+    </div>
+  <% }) %>
+</div>
+
+<% include ../partials/end %>
