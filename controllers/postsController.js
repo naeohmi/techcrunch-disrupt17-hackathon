@@ -1,4 +1,4 @@
-const Post = require('../models/quote');
+const Post = require('../models/post');
 
 const controller = {};
 
@@ -6,7 +6,7 @@ controller.index = (req, res) => {
   Post.findAll()
     .then(posts => {
       res.render('posts/posts-index', {
-        documentTitle: 'Adaquote!',
+        documentTitle: 'Adapost!',
         postsData: posts,
       });
     })
@@ -19,7 +19,7 @@ controller.show = (req, res) => {
   Post.findById(req.params.id)
     .then(post => {
       res.render('posts/posts-single', {
-        documentTitle: 'Adaquote!',
+        documentTitle: 'Adapost!',
         post: post,
       });
     })
@@ -44,9 +44,9 @@ controller.create = (req, res) => {
 
 controller.edit = (req, res) => {
   Post.findById(req.params.id)
-    .then(quote => {
+    .then(post => {
       res.render('posts/posts-edit', {
-        documentTitle: 'Adaquote!',
+        documentTitle: 'Adapost!',
         post: post,
         id: req.params.id,
       });
