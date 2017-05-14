@@ -27,6 +27,7 @@ let grab = () => {
         console.log(eh)
         console.log($(".modal-footer > input").val());
     });
+
 };
 
 if ($(".UserChat > button")[0] !== undefined) {
@@ -43,3 +44,8 @@ let startChat = (user) => {
 
     pubnub.publish({ channel: helperChannel, message: input.value, x: (input.value = '') });
 };
+
+})();
+
+
+// c489eefa5f1fe70cd00ca001f09c00bb3e23c398
