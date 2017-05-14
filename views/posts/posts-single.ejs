@@ -1,0 +1,14 @@
+<% include ../partials/boilerplate %>
+ <% include ./partials/styles %>
+
+  <div class='single-post'>
+    <h3><%= post.content %></h3>
+    <div class='meta'>
+      <span class='author'><%= post.author %></span>
+      <span class='genre'><%= post.genre_id %></span>
+    </div>
+  </div>
+
+  <a href='/posts'>Return to posts index</a>
+
+<% include ../partials/end %>

@@ -3,7 +3,7 @@
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 <!-- link to universal css -->
-<link type="text/css" rel="stylesheet" href="../stylesheets/style.css"></link>
+<link type="text/css" rel="stylesheet" href="./static/stylesheets/style.css"/>
 <!-- pubnub CDN -->
 <script src=https://cdn.pubnub.com/sdk/javascript/pubnub.4.0.11.min.js></script>
 </head>
@@ -26,9 +26,10 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">About</a></li>
-          <li><a href="#">Sign Up</a></li>
-          <li><a href="#">Sign In</a></li>
+          <li><a href='/posts'>See all posts</a></li>
+          <li><a href='/auth/register'>Register</a></li>
+          <li><a href='/auth/login'>Log in</a></li>
+          <li><a href='/auth/logout'>Log out</a></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
