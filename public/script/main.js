@@ -31,15 +31,42 @@
 
 let trust = "";
 let user = '';
+let dime = false;
+var pubnub = new PubNub({ publishKey: 'pub-c-c380fb6c-9e63-4585-b543-fbf2a36c5cc0',
+    subscribeKey: 'sub-c-e2bcc08c-381a-11e7-a268-0619f8945a4f' });
+
+
 
 let grab = () => {
+    //if button is pressed, run subscribe function
+    dime = true;
+    console.log("grab called")
+    startChat(user)
+    pubnub.addListener({
+            status: function(statusEvent) {
+                if (statusEvent.category === "PNConnectedCategory") {
+                   console.log("print")
+                }
+            },
+            message: function (obj) {
+
+                let k2 = document.createElement("DIV")
+                 // trust.innerHTML = ('' + obj.message).replace(/[<>]/g, '') + '<br>' + box.innerHTML
+                 k2.innerText = obj.message
+                 trust[0].appendChild(k2)
+
+             }
+                })
     $("#mod")[0].addEventListener("click", function(e) {
-        startChat(user, $(".modal-footer > input").val())
-        // debugger
-        $(".modal-footer > input").val("")
-        console.log(e)
-         trust = e.target.parentElement.parentElement.children[1]
-        console.log($(".modal-footer > input").val());
+        console.log("clicked")
+
+
+      pubnub.publish({ channel: "helperChannel", message:  ': ' + $(".modal-footer > input").val()});
+      pubnub.subscribe({ channels: ['helperChannel'] });
+
+      trust = $(e.target.parentElement.parentElement.children[1])
+      $(".modal-footer > input").val("")
+        // console.log($(".modal-footer > input").val());
     });
 
 };
@@ -47,27 +74,16 @@ let grab = () => {
 if ($(".UserChat > button")[0] !== undefined) {
     $(".UserChat > button")[0].addEventListener("click", function(e) {
         console.log(e);
-        grab();
+        if(!dime){grab()}
     }, false);
 }
 
-let startChat = (user, message) => {
+let startChat = (user) => {
+console.log("yoi")
 
-let k = $("<div>")
-    var pubnub = new PubNub({ publishKey: 'pub-c-c380fb6c-9e63-4585-b543-fbf2a36c5cc0', subscribeKey: 'sub-c-e2bcc08c-381a-11e7-a268-0619f8945a4f' });
-
-    pubnub.subscribe({ channels: ['helperChannel'] });
-
-      pubnub.addListener({
-            message: function (obj) {
-
-                 // trust.innerHTML = ('' + obj.message).replace(/[<>]/g, '') + '<br>' + box.innerHTML
-                 k[0].innerHTML = message
-                 trust.appendChild(k[0])
-
-             }
-                })
-                 pubnub.publish({ channel: "helperChannel", message: user + ': ' + input.value, x: (input.value = '') });
+    //var pubnub = new PubNub({ publishKey: 'demo', subscribeKey: 'demo' });
+      // pubnub.subscribe({ channels: ['helperChannel'] });
+      // pubnub.publish({ channel: "helperChannel", message:  ': ' + $(".modal-footer > input").val()});
 
 
     // pubnub.publish({
@@ -78,10 +94,7 @@ let k = $("<div>")
 
 // })();
 
-
 console.log('working hahahhahaha');
-
-
 
 const submitbttn = document.getElementById('submitbttn');
 let nameInput = document.getElementById('nameInput');
@@ -95,27 +108,28 @@ submitbttn.addEventListener("click", function () {
 
 });
 
-(function () {
-        var pubnub = new PubNub({ publishKey: 'demo', subscribeKey: 'demo' });
-        function $(id) { return document.getElementById(id); }
-        var box = $('box'), input = $('#input'), channel = '10chat-demo';
-        pubnub.addListener({
-            message: function (obj) {
-                    debugger
-                box.innerHTML = ('' + obj.message).replace(/[<>]/g, '') + '<br>' + box.innerHTML
-            }
-        });
-        pubnub.subscribe({ channels: [channel] });
-        input.addEventListener('keyup', function (e) {
+// (function () {
+//         var pubnub = new PubNub({ publishKey: 'demo', subscribeKey: 'demo' });
+//         function $(id) { return document.getElementById(id); }
+//         var box = $('box'), input = $('input'), channel = '10chat-demo';
+//         pubnub.addListener({
+//             message: function (obj) {
+//                     debugger
+//                 box.innerHTML = ('' + obj.message).replace(/[<>]/g, '') + '<br>' + box.innerHTML
+//             }
+//         });
+//         pubnub.subscribe({ channels: [channel] });
 
-            if ((e.keyCode || e.charCode) === 13) {
-                pubnub.publish({ channel: channel, message: ': ' + input.value, x: (input.value = '') });
-            }
+//         input.addEventListener('keyup', function (e) {
 
-        });
-    }
+//             if ((e.keyCode || e.charCode) === 13) {
+//                 pubnub.publish({ channel: channel, message: ': ' + input.value, x: (input.value = '') });
+//             }
 
-)();
+//         });
+//     }
+
+// )();
 
 
 
