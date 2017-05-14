@@ -1,28 +1,11 @@
 <% include ../partials/boilerplate %>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/marx/2.0.7/marx.min.css" />
-<div class="allpostcontainer">
 
-<a href='/posts/add'>Add a post!</a>
-<div class="allpost">
-  <% postsData.forEach(function(post) { %>
-   <div class="eachpost">
-   <div class="title">
-       <%= post.title %>
-       </div>
-       <div class="content">
-     <%= post.content %>
-      </div>
-      <div class="author">
-       <%= post.author %>
-     </div>
-     </div>
-      <a href='/posts/<%= post.id %>' class='gotopost'>Go to post</a>
-      <a href='/posts/edit/<%= post.id %>' class='editpost'>Edit post</a>
-      <form method='POST' class='deleteform' action='/posts/<%= post.id %>?_method=DELETE'>
-        <input type='submit' value='Delete' class='deletepost'/>
-      </form>
-  <hr>
-  <% }) %>
-</div>
-</div>
+<form method='POST' action='/posts/<%= id %>?_method=PUT'>
+  <input name='content' type='text' value='<%= post.content %>' />
+  <input name='author' type='text' value='<%= post.author %>' />
+  <input name='title' type='text' value='<%= post.title %>' />
+  <input type='submit' value='Edit it!' />
+</form>
+<script src="/static/js/main.js"></script>
 <% include ../partials/end %>
+

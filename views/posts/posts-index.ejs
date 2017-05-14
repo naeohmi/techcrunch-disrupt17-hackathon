@@ -1,22 +1,28 @@
 <% include ../partials/boilerplate %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/marx/2.0.7/marx.min.css" />
+<div class="allpostcontainer">
 
 <a href='/posts/add'>Add a post!</a>
-
-<div class='posts'>
+<div class="allpost">
   <% postsData.forEach(function(post) { %>
-    <div class='my-post'>
-        <span class='genre'><%= post.title %></span>
-      <h3><%= post.content %></h3>
-      <div class='meta'>
-        <span class='author'><%= post.author %></span>
+   <div class="eachpost">
+   <div class="title">
+       <%= post.title %>
+       </div>
+       <div class="content">
+     <%= post.content %>
       </div>
-      <a href='/posts/<%= post.id %>'>Go to page</a>
-      <a href='/posts/edit/<%= post.id %>'>Edit post</a>
-      <form method='POST' action='/posts/<%= post.id %>?_method=DELETE'>
-        <input type='submit' value='Delete it!' />
+      <div class="author">
+       <%= post.author %>
+     </div>
+     </div>
+      <a href='/posts/<%= post.id %>' class='gotopost'>Go to post</a>
+      <a href='/posts/edit/<%= post.id %>' class='editpost'>Edit post</a>
+      <form method='POST' class='deleteform' action='/posts/<%= post.id %>?_method=DELETE'>
+        <input type='submit' value='Delete' class='deletepost'/>
       </form>
-    </div>
+  <hr>
   <% }) %>
 </div>
-
+</div>
 <% include ../partials/end %>
