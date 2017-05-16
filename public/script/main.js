@@ -40,8 +40,9 @@ var pubnub = new PubNub({ publishKey: 'pub-c-c380fb6c-9e63-4585-b543-fbf2a36c5cc
 let grab = () => {
     //if button is pressed, run subscribe function
     dime = true;
+    let Userchannel = "anthonychannel";
     console.log("grab called")
-    startChat(user)
+
     pubnub.addListener({
             status: function(statusEvent) {
                 if (statusEvent.category === "PNConnectedCategory") {
@@ -61,8 +62,9 @@ let grab = () => {
         console.log("clicked")
 
 
-      pubnub.publish({ channel: "helperChannel", message:  ': ' + $(".modal-footer > input").val()});
-      pubnub.subscribe({ channels: ['helperChannel'] });
+
+      pubnub.publish({ channel: Userchannel, message:  ': ' + $(".modal-footer > input").val()});
+      pubnub.subscribe({ channels: [Userchannel] });
 
       trust = $(e.target.parentElement.parentElement.children[1])
       $(".modal-footer > input").val("")
@@ -101,7 +103,6 @@ let nameInput = document.getElementById('nameInput');
 let enterName = document.getElementById('enterName');
 
 submitbttn.addEventListener("click", function () {
-
     user = nameInput.value;
     enterName.style.display = "none";
       console.log(user)
@@ -138,9 +139,15 @@ submitbttn.addEventListener("click", function () {
 
 
 
+/////.  have to include admin page so helper bees can select different chat
+/// the admin page will have a list of users who request a chat
+/// the helper bee could click a username, which luanches a modal/chat window and subscribes to that user channel
+/// once they are finish,  they both would unsubcribe
+
+////. ***** check subscribe method....create achannel name with the user input (username)
 
 
 
 
-
+/// https://www.pubnub.com/blog/2014-03-11-five-creative-ways-to-use-pubnub-data-stream/
 // c489eefa5f1fe70cd00ca001f09c00bb3e23c398
